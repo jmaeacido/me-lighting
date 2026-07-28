@@ -715,14 +715,14 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} ME Lighting. All rights reserved.</p>
-          <div className="crafted-by">
+          <a className="crafted-by" href="https://proairmarketing.com/" target="_blank" rel="noreferrer" aria-label="Crafted by ProAir Marketing">
             <img
               src="/crafted.png"
               alt="Crafted by ProAir Marketing"
               width={168}
               height={48}
             />
-          </div>
+          </a>
           <p>Design · Supply · Install</p>
         </div>
       </footer>
