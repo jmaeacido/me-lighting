@@ -353,15 +353,8 @@
 .footer-bottom { max-width:1400px; margin:0 auto; padding:16px 5vw 22px; border-top:1px solid rgba(255,255,255,.09); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:28px; color:rgba(255,255,255,.42); font-size:9px; text-transform:uppercase; letter-spacing:.08em; }
 .footer-bottom p { margin:0; }
 .footer-bottom > p:last-child { text-align:right; }
-.crafted-by { display:flex; align-items:center; justify-content:center; gap:9px; color:#fff; text-transform:none; letter-spacing:0; }
-.crafted-mark { position:relative; width:35px; height:35px; flex:none; border:2px solid #168bd0; border-radius:50%; display:grid; place-items:center; color:#168bd0; background:#080808; overflow:hidden; }
-.crafted-mark::before,.crafted-mark::after { content:""; position:absolute; background:#168bd0; opacity:.92; }
-.crafted-mark::before { width:2px; height:24px; left:9px; bottom:3px; transform:rotate(27deg); }
-.crafted-mark::after { width:2px; height:25px; right:9px; bottom:3px; transform:rotate(-27deg); }
-.crafted-mark > span { position:relative; z-index:1; font:800 10px/1 "Manrope",sans-serif; }
-.crafted-copy { display:flex; flex-direction:column; gap:2px; }
-.crafted-copy small { color:rgba(255,255,255,.55); font:600 7px/1 "DM Sans",sans-serif; }
-.crafted-copy strong { color:#168bd0; font:800 8px/1 "Manrope",sans-serif; letter-spacing:.06em; }
+.crafted-by { display:flex; align-items:center; justify-content:center; }
+.crafted-by img { display:block; height:48px; width:auto; }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-content > * { animation:hero-in 700ms var(--ease-out) both; }
