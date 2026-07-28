@@ -49,12 +49,29 @@ $env:NODE_ENV="production"
 node dist/index.js
 ```
 
+## Deploy on Vercel
+
+This app is a static Vite SPA on Vercel (not the Express server). Config lives in `vercel.json`:
+
+- Build: `pnpm run build:web` → output `dist/public`
+- SPA fallback rewrite for client routes
+
+Add these [Environment Variables](https://vercel.com/docs/projects/environment-variables) (Production + Preview) so analytics placeholders resolve at build time:
+
+```env
+VITE_ANALYTICS_ENDPOINT=https://manus-analytics.com
+VITE_ANALYTICS_WEBSITE_ID=5582f454-542b-42b4-84e8-aed9433405be
+```
+
+Live: [https://me-lighting.vercel.app/](https://me-lighting.vercel.app/)
+
 ## Scripts
 
 | Script | Description |
 | --- | --- |
 | `pnpm dev` | Vite dev server (`--host`) |
 | `pnpm build` | Build client + bundle Express server |
+| `pnpm build:web` | Vite client only (used by Vercel) |
 | `pnpm start` | Run production server (`NODE_ENV=production`) |
 | `pnpm preview` | Vite preview of the client build |
 | `pnpm check` | TypeScript check (`tsc --noEmit`) |
