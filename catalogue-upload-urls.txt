@@ -1,0 +1,84 @@
+Uploading file (webdev private): me-architectural-feature-rings.jpg (size: 40869 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-architectural-feature-rings_74ee9ace.jpg
+Uploading file (webdev private): me-bollard-lighting.jpg (size: 33506 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-bollard-lighting_9e643367.jpg
+Uploading file (webdev private): me-cabinet-joinery-lighting.jpg (size: 74456 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-cabinet-joinery-lighting_44c49f89.jpg
+Uploading file (webdev private): me-custom-fabrication-lighting.jpg (size: 33745 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-custom-fabrication-lighting_35d25f2b.jpg
+Uploading file (webdev private): me-dmx-pixel-led-systems.jpg (size: 167633 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-dmx-pixel-led-systems_4f967f69.jpg
+Uploading file (webdev private): me-emergency-lighting-systems.jpg (size: 56303 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-emergency-lighting-systems_824e23c4.jpg
+Uploading file (webdev private): me-high-bay-lighting.jpg (size: 60026 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-high-bay-lighting_f19c0060.jpg
+Uploading file (webdev private): me-inground-uplights.jpg (size: 48652 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-inground-uplights_3f6cf07f.jpg
+Uploading file (webdev private): me-ip-rated-strip-lighting.jpg (size: 65405 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-ip-rated-strip-lighting_65a0bcee.jpg
+Uploading file (webdev private): me-led-drivers-power-systems.jpg (size: 74041 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-led-drivers-power-systems_043ae23a.jpg
+Uploading file (webdev private): me-led-neon-flex.jpg (size: 77128 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-led-neon-flex_28d1ea0b.jpg
+Uploading file (webdev private): me-linear-led-profiles.jpg (size: 61023 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-linear-led-profiles_fc451e34.jpg
+Uploading file (webdev private): me-outdoor-floodlights.jpg (size: 64380 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-outdoor-floodlights_73d56b6b.jpg
+Uploading file (webdev private): me-pendant-lighting-systems.jpg (size: 38952 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-pendant-lighting-systems_ea8c8f2e.jpg
+Uploading file (webdev private): me-recessed-downlights.jpg (size: 57301 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-recessed-downlights_ade7e4e5.jpg
+Uploading file (webdev private): me-smart-lighting-controls.jpg (size: 77510 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-smart-lighting-controls_be55b6a2.jpg
+Uploading file (webdev private): me-step-marker-lights.jpg (size: 24520 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-step-marker-lights_436b1c8a.jpg
+Uploading file (webdev private): me-surface-mounted-downlights.jpg (size: 47712 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-surface-mounted-downlights_5659baad.jpg
+Uploading file (webdev private): me-track-lighting-systems.jpg (size: 52124 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-track-lighting-systems_9ebb6c62.jpg
+Uploading file (webdev private): me-wall-grazers-washers.jpg (size: 32126 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/me-wall-grazers-washers_dfe4f732.jpg
+
+========== Upload Summary ==========
+[SUCCESS] me-architectural-feature-rings.jpg -> /manus-storage/me-architectural-feature-rings_74ee9ace.jpg
+[SUCCESS] me-bollard-lighting.jpg -> /manus-storage/me-bollard-lighting_9e643367.jpg
+[SUCCESS] me-cabinet-joinery-lighting.jpg -> /manus-storage/me-cabinet-joinery-lighting_44c49f89.jpg
+[SUCCESS] me-custom-fabrication-lighting.jpg -> /manus-storage/me-custom-fabrication-lighting_35d25f2b.jpg
+[SUCCESS] me-dmx-pixel-led-systems.jpg -> /manus-storage/me-dmx-pixel-led-systems_4f967f69.jpg
+[SUCCESS] me-emergency-lighting-systems.jpg -> /manus-storage/me-emergency-lighting-systems_824e23c4.jpg
+[SUCCESS] me-high-bay-lighting.jpg -> /manus-storage/me-high-bay-lighting_f19c0060.jpg
+[SUCCESS] me-inground-uplights.jpg -> /manus-storage/me-inground-uplights_3f6cf07f.jpg
+[SUCCESS] me-ip-rated-strip-lighting.jpg -> /manus-storage/me-ip-rated-strip-lighting_65a0bcee.jpg
+[SUCCESS] me-led-drivers-power-systems.jpg -> /manus-storage/me-led-drivers-power-systems_043ae23a.jpg
+[SUCCESS] me-led-neon-flex.jpg -> /manus-storage/me-led-neon-flex_28d1ea0b.jpg
+[SUCCESS] me-linear-led-profiles.jpg -> /manus-storage/me-linear-led-profiles_fc451e34.jpg
+[SUCCESS] me-outdoor-floodlights.jpg -> /manus-storage/me-outdoor-floodlights_73d56b6b.jpg
+[SUCCESS] me-pendant-lighting-systems.jpg -> /manus-storage/me-pendant-lighting-systems_ea8c8f2e.jpg
+[SUCCESS] me-recessed-downlights.jpg -> /manus-storage/me-recessed-downlights_ade7e4e5.jpg
+[SUCCESS] me-smart-lighting-controls.jpg -> /manus-storage/me-smart-lighting-controls_be55b6a2.jpg
+[SUCCESS] me-step-marker-lights.jpg -> /manus-storage/me-step-marker-lights_436b1c8a.jpg
+[SUCCESS] me-surface-mounted-downlights.jpg -> /manus-storage/me-surface-mounted-downlights_5659baad.jpg
+[SUCCESS] me-track-lighting-systems.jpg -> /manus-storage/me-track-lighting-systems_9ebb6c62.jpg
+[SUCCESS] me-wall-grazers-washers.jpg -> /manus-storage/me-wall-grazers-washers_dfe4f732.jpg
+=====================================
+Total: 20, Success: 20, Failed: 0
