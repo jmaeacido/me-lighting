@@ -717,7 +717,7 @@ export default function Home() {
           <p>© {new Date().getFullYear()} ME Lighting. All rights reserved.</p>
           <div className="crafted-by">
             <img
-              src="/proair-marketing-crafted-by.png"
+              src="/crafted.png"
               alt="Crafted by ProAir Marketing"
               width={168}
               height={48}
