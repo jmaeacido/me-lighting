@@ -39,8 +39,12 @@ import {
 import { toast } from "sonner";
 
 const HERO_IMAGE = "/manus-storage/me-lighting-hero_05467120.jpg";
-const OUTDOOR_IMAGE = "/manus-storage/garden-lighting_f9c0c74b.jpg";
-const KITCHEN_IMAGE = "/manus-storage/cove-kitchen_bd8c02da.jpg";
+const OUTDOOR_IMAGE = "/site-draft/outdoor.png";
+const KITCHEN_IMAGE = "/site-draft/kitchen.png";
+const BATHROOM_IMAGE = "/site-draft/bathroom.png";
+const FEATURE_LIGHTING_IMAGE = "/site-draft/feature-lighting.png";
+const NEW_HOME_IMAGE = "/site-draft/new-home.png";
+const WHOLE_HOME_IMAGE = "/site-draft/whole-home.png";
 const PLANS_IMAGE = "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2200&q=90";
 const LOGO_IMAGE = "/manus-storage/me-lighting-clean-logo-final_a9a591ff.png";
 const TEAM_PORTRAIT_ONE = "/manus-storage/me-lighting-team-portrait-01_86017722.png";
@@ -50,7 +54,7 @@ const solutions = [
   {
     name: "New Home",
     description: "Start your build with the right lighting plan.",
-    image: "/manus-storage/living-cove_8fdb1f5e.jpeg",
+    image: NEW_HOME_IMAGE,
     icon: House,
   },
   {
@@ -62,7 +66,7 @@ const solutions = [
   {
     name: "Bathroom",
     description: "The perfect balance of light and mood.",
-    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=88",
+    image: BATHROOM_IMAGE,
     icon: Bath,
   },
   {
@@ -74,13 +78,13 @@ const solutions = [
   {
     name: "Feature Lighting",
     description: "Create impact with architectural light.",
-    image: "/manus-storage/feature-stair_a0fafab8.png",
+    image: FEATURE_LIGHTING_IMAGE,
     icon: Sparkles,
   },
   {
     name: "Whole Home",
     description: "A complete, connected lighting solution.",
-    image: "/manus-storage/lounge-lighting_32cb5ca3.jpg",
+    image: WHOLE_HOME_IMAGE,
     icon: LampCeiling,
   },
 ];
@@ -243,7 +247,7 @@ const benefits = [
     support: "Custom Cut Service",
     description: "Custom-cut lighting prepared quickly to keep your project moving.",
     icon: Scissors,
-    image: "/manus-storage/stair-lighting_8a267161.jpg",
+    image: WHOLE_HOME_IMAGE,
   },
   {
     eyebrow: "PRODUCT CONFIDENCE",
@@ -251,7 +255,7 @@ const benefits = [
     support: "Manufacturer Warranty",
     description: "Selected products are supported by a five-year manufacturer warranty.",
     icon: ShieldCheck,
-    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=88",
+    image: BATHROOM_IMAGE,
   },
   {
     eyebrow: "REAL GUIDANCE",
@@ -259,7 +263,7 @@ const benefits = [
     support: "Advice",
     description: "Clear, practical guidance from people who understand lighting in real spaces.",
     icon: Headphones,
-    image: "/manus-storage/feature-stair_a0fafab8.png",
+    image: FEATURE_LIGHTING_IMAGE,
   },
   {
     eyebrow: "PROVEN EXPERIENCE",
@@ -267,7 +271,7 @@ const benefits = [
     support: "Industry Experience",
     description: "More than two decades helping Australian customers make confident decisions.",
     icon: Award,
-    image: "/manus-storage/lounge-lighting_32cb5ca3.jpg",
+    image: NEW_HOME_IMAGE,
   },
   {
     eyebrow: "CUSTOMER TRUST",
@@ -290,13 +294,13 @@ const articles = [
     date: "8 MAY 2026",
     title: "What colour temperature belongs in a bathroom?",
     excerpt: "Warm white or cool white? Here is how to choose with confidence.",
-    image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1000&q=88",
+    image: BATHROOM_IMAGE,
   },
   {
     date: "5 MAY 2026",
     title: "What wattage LED strip do I need?",
     excerpt: "Everything to know before selecting an architectural LED profile.",
-    image: "/manus-storage/stair-lighting_8a267161.jpg",
+    image: FEATURE_LIGHTING_IMAGE,
   },
   {
     date: "1 MAY 2026",
