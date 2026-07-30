@@ -520,7 +520,7 @@ export default function Home() {
                   aria-hidden={distance > 2 ? "true" : undefined}
                   style={{
                     "--x": `${offset * 390}px`,
-                    "--mobile-x": `${offset * 82}vw`,
+                    "--mobile-x": `${offset * 86}vw`,
                     "--scale": distance === 0 ? 1 : distance === 1 ? 0.86 : 0.72,
                     "--opacity": distance === 0 ? 1 : distance === 1 ? 0.48 : distance === 2 ? 0.16 : 0,
                     "--z": 10 - distance,
