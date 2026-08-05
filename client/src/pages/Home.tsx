@@ -9,30 +9,43 @@ import {
   BadgeDollarSign,
   BadgeCheck,
   Bath,
+  Bed,
   BookOpen,
+  Building2,
+  Car,
   ChevronLeft,
   ChevronDown,
   ChevronRight,
   Clock3,
+  DoorOpen,
+  Droplets,
+  Flower2,
   Gem,
+  GlassWater,
   Headphones,
   House,
   Instagram,
-  LampCeiling,
+  Laptop,
+  Layers,
   Lightbulb,
   Mail,
   MapPin,
   Menu,
   MoveUpRight,
   Phone,
+  Route,
   Ruler,
   Scissors,
   ShieldCheck,
+  Shirt,
+  Smartphone,
+  Sofa,
   Sparkles,
-  Trees,
   Upload,
   Users,
   Utensils,
+  UtensilsCrossed,
+  WashingMachine,
   X,
   Youtube,
 } from "lucide-react";
@@ -50,42 +63,116 @@ const LOGO_IMAGE = "/manus-storage/me-lighting-clean-logo-final_a9a591ff.png";
 const TEAM_PORTRAIT_ONE = "/manus-storage/me-lighting-team-portrait-01_86017722.png";
 const TEAM_PORTRAIT_TWO = "/manus-storage/me-lighting-team-portrait-02_0534ac31.png";
 
+const modImage = (filename: string) => `/modification/${encodeURIComponent(filename)}`;
+
 const solutions = [
   {
-    name: "New Home",
-    description: "Start your build with the right lighting plan.",
-    image: NEW_HOME_IMAGE,
-    icon: House,
-  },
-  {
-    name: "Kitchen",
-    description: "Functional, beautiful and practical.",
-    image: KITCHEN_IMAGE,
+    name: "Kitchen Lighting",
+    description: "Functional, beautiful and practical for everyday living.",
+    image: modImage("Kitchen.png"),
     icon: Utensils,
   },
   {
-    name: "Bathroom",
-    description: "The perfect balance of light and mood.",
-    image: BATHROOM_IMAGE,
+    name: "Bathroom Lighting",
+    description: "The perfect balance of light, clarity and mood.",
+    image: modImage("Bathroom.png"),
     icon: Bath,
   },
   {
-    name: "Outdoor",
-    description: "Enhance your space after dark.",
-    image: OUTDOOR_IMAGE,
-    icon: Trees,
+    name: "Living Room Lighting",
+    description: "Layered light for relaxed evenings and everyday comfort.",
+    image: modImage("Living Room.png"),
+    icon: Sofa,
+  },
+  {
+    name: "Dining Room Lighting",
+    description: "Warm, flattering light for meals and gatherings.",
+    image: modImage("Dinning Room.png"),
+    icon: UtensilsCrossed,
+  },
+  {
+    name: "Bedroom Lighting",
+    description: "Soft, restful illumination with practical task light.",
+    image: modImage("Bedroom.png"),
+    icon: Bed,
+  },
+  {
+    name: "Walk-In Robe Lighting",
+    description: "Clear, even light for dressing and organisation.",
+    image: modImage("Walk In.png"),
+    icon: Shirt,
+  },
+  {
+    name: "Stair Lighting",
+    description: "Safe, subtle guidance through vertical circulation.",
+    image: modImage("Stair Lighting.png"),
+    icon: Layers,
+  },
+  {
+    name: "Hallway Lighting",
+    description: "Connected pathways with calm, consistent light.",
+    image: modImage("Hall Way Lighting.png"),
+    icon: DoorOpen,
+  },
+  {
+    name: "Home Office Lighting",
+    description: "Focused, comfortable light for productive work.",
+    image: modImage("Architectural Linear Lighting.png"),
+    icon: Laptop,
+  },
+  {
+    name: "Laundry Lighting",
+    description: "Bright, practical illumination for utility spaces.",
+    image: modImage("Laundry Lighting.png"),
+    icon: WashingMachine,
+  },
+  {
+    name: "Garage Lighting",
+    description: "Reliable, high-output light for storage and access.",
+    image: modImage("Garage Lighting.png"),
+    icon: Car,
+  },
+  {
+    name: "Outdoor Entertaining",
+    description: "Atmospheric light for alfresco dining and gatherings.",
+    image: modImage("Outdoor Entertaining.png"),
+    icon: GlassWater,
+  },
+  {
+    name: "Garden Lighting",
+    description: "Reveal planting, texture and landscape after dark.",
+    image: modImage("Garden Lighting.png"),
+    icon: Flower2,
+  },
+  {
+    name: "Pool & Water Feature Lighting",
+    description: "Dramatic, safe illumination around water elements.",
+    image: modImage("Pool Lighting.png"),
+    icon: Droplets,
+  },
+  {
+    name: "Driveway & Pathway Lighting",
+    description: "Welcoming guidance from street to front door.",
+    image: modImage("Drive Way and Pathway Lighting.png"),
+    icon: Route,
+  },
+  {
+    name: "Front Facade Lighting",
+    description: "Architectural presence and curb appeal after sunset.",
+    image: modImage("Facade Lighting.png"),
+    icon: Building2,
   },
   {
     name: "Feature Lighting",
-    description: "Create impact with architectural light.",
-    image: FEATURE_LIGHTING_IMAGE,
+    description: "Create impact with sculptural architectural light.",
+    image: modImage("Featuer Lighting.png"),
     icon: Sparkles,
   },
   {
-    name: "Whole Home",
-    description: "A complete, connected lighting solution.",
-    image: WHOLE_HOME_IMAGE,
-    icon: LampCeiling,
+    name: "Smart Home Lighting",
+    description: "App-based control for scenes, schedules and comfort.",
+    image: modImage("App Based Control Systems.png"),
+    icon: Smartphone,
   },
 ];
 
@@ -505,7 +592,7 @@ export default function Home() {
         <section id="best-sellers" className="best-sellers-section" aria-labelledby="best-sellers-title">
           <div className="best-sellers-heading motion-reveal">
             <p className="eyebrow">MOST SPECIFIED</p>
-            <h2 id="best-sellers-title">Best sellers for beautifully resolved spaces.</h2>
+            <h2 id="best-sellers-title">Lighting Solutions Homeowners Love</h2>
             <p>A considered edit of architectural fixtures for layered, comfortable light.</p>
           </div>
           <div className="best-seller-stage">
@@ -707,7 +794,7 @@ export default function Home() {
             <a href="#contact">Contact us</a>
           </div>
           <address className="footer-contact">
-            <a href="tel:+61297009688"><Phone size={15} /> 02 9700 9688</a>
+            <a href="tel:+611800411754"><Phone size={15} /> 1800 411 754</a>
             <a href="mailto:sales@melighting.com.au"><Mail size={15} /> sales@melighting.com.au</a>
             <span><MapPin size={15} /> Sydney & Mittagong, NSW</span>
             <div className="socials">
