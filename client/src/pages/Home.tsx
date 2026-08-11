@@ -8,44 +8,26 @@ import {
   Award,
   BadgeDollarSign,
   BadgeCheck,
-  Bath,
-  Bed,
   BookOpen,
-  Building2,
-  Car,
   ChevronLeft,
   ChevronDown,
   ChevronRight,
   Clock3,
-  DoorOpen,
-  Droplets,
-  Flower2,
   Gem,
-  GlassWater,
   Headphones,
   House,
   Instagram,
-  Laptop,
-  Layers,
   Lightbulb,
   Mail,
   MapPin,
   Menu,
   MoveUpRight,
   Phone,
-  Route,
   Ruler,
   Scissors,
   ShieldCheck,
-  Shirt,
-  Smartphone,
-  Sofa,
-  Sparkles,
   Upload,
   Users,
-  Utensils,
-  UtensilsCrossed,
-  WashingMachine,
   X,
   Youtube,
 } from "lucide-react";
@@ -70,109 +52,91 @@ const solutions = [
     name: "Kitchen Lighting",
     description: "Functional, beautiful and practical for everyday living.",
     image: modImage("Kitchen.png"),
-    icon: Utensils,
   },
   {
     name: "Bathroom Lighting",
     description: "The perfect balance of light, clarity and mood.",
     image: modImage("Bathroom.png"),
-    icon: Bath,
   },
   {
     name: "Living Room Lighting",
     description: "Layered light for relaxed evenings and everyday comfort.",
     image: modImage("Living Room.png"),
-    icon: Sofa,
   },
   {
     name: "Dining Room Lighting",
     description: "Warm, flattering light for meals and gatherings.",
     image: modImage("Dinning Room.png"),
-    icon: UtensilsCrossed,
   },
   {
     name: "Bedroom Lighting",
     description: "Soft, restful illumination with practical task light.",
     image: modImage("Bedroom.png"),
-    icon: Bed,
   },
   {
     name: "Walk-In Robe Lighting",
     description: "Clear, even light for dressing and organisation.",
     image: modImage("Walk In.png"),
-    icon: Shirt,
   },
   {
     name: "Stair Lighting",
     description: "Safe, subtle guidance through vertical circulation.",
     image: modImage("Stair Lighting.png"),
-    icon: Layers,
   },
   {
     name: "Hallway Lighting",
     description: "Connected pathways with calm, consistent light.",
     image: modImage("Hall Way Lighting.png"),
-    icon: DoorOpen,
   },
   {
     name: "Home Office Lighting",
     description: "Focused, comfortable light for productive work.",
     image: modImage("Architectural Linear Lighting.png"),
-    icon: Laptop,
   },
   {
     name: "Laundry Lighting",
     description: "Bright, practical illumination for utility spaces.",
     image: modImage("Laundry Lighting.png"),
-    icon: WashingMachine,
   },
   {
     name: "Garage Lighting",
     description: "Reliable, high-output light for storage and access.",
     image: modImage("Garage Lighting.png"),
-    icon: Car,
   },
   {
     name: "Outdoor Entertaining",
     description: "Atmospheric light for alfresco dining and gatherings.",
     image: modImage("Outdoor Entertaining.png"),
-    icon: GlassWater,
   },
   {
     name: "Garden Lighting",
     description: "Reveal planting, texture and landscape after dark.",
     image: modImage("Garden Lighting.png"),
-    icon: Flower2,
   },
   {
     name: "Pool & Water Feature Lighting",
     description: "Dramatic, safe illumination around water elements.",
     image: modImage("Pool Lighting.png"),
-    icon: Droplets,
   },
   {
     name: "Driveway & Pathway Lighting",
     description: "Welcoming guidance from street to front door.",
     image: modImage("Drive Way and Pathway Lighting.png"),
-    icon: Route,
   },
   {
     name: "Front Facade Lighting",
     description: "Architectural presence and curb appeal after sunset.",
     image: modImage("Facade Lighting.png"),
-    icon: Building2,
   },
   {
     name: "Feature Lighting",
     description: "Create impact with sculptural architectural light.",
     image: modImage("Featuer Lighting.png"),
-    icon: Sparkles,
   },
   {
     name: "Smart Home Lighting",
     description: "App-based control for scenes, schedules and comfort.",
     image: modImage("App Based Control Systems.png"),
-    icon: Smartphone,
   },
 ];
 
@@ -562,14 +526,11 @@ export default function Home() {
             <div className="solution-grid">
               {[0, 1].map((group) => (
                 <div className="solution-marquee-group" key={group} aria-hidden={group === 1 ? "true" : undefined}>
-                  {solutions.map((solution) => {
-                    const Icon = solution.icon;
-                    return (
+                  {solutions.map((solution) => (
                       <a className="solution-card" href="#contact" key={`${group}-${solution.name}`} tabIndex={group === 1 ? -1 : undefined}>
                         <div className="solution-visual">
                           <img src={solution.image} alt={group === 0 ? `${solution.name} lighting` : ""} />
                           <div className="solution-shade" />
-                          <Icon className="solution-icon" strokeWidth={1.5} />
                         </div>
                         <div className="solution-copy">
                           <h3>{solution.name}</h3>
@@ -577,8 +538,7 @@ export default function Home() {
                           <ArrowRight size={17} />
                         </div>
                       </a>
-                    );
-                  })}
+                  ))}
                 </div>
               ))}
             </div>
