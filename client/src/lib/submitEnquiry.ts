@@ -1,47 +1,34 @@
-import { buildEnquiryPayload, ENQUIRY_RECIPIENTS, type EnquiryFields } from "@shared/enquiry";
+import { postToFormSubmit, type EnquiryFields, type EnquirySendResult } from "@shared/enquiry";
 
-function readFile(input: FormData): File | null {
+function readFileName(input: FormData): string {
   const entry = input.get("plans") || input.get("hero-plans");
-  return entry instanceof File && entry.size > 0 ? entry : null;
+  return entry instanceof File && entry.size > 0 ? entry.name : "";
 }
 
-async function postEnquiry(url: string, payload: FormData): Promise<boolean> {
+async function postLocalApi(fields: EnquiryFields, fileName: string): Promise<EnquirySendResult | null> {
   try {
-    const response = await fetch(url, {
+    const response = await fetch("/api/enquiry", {
       method: "POST",
-      body: payload,
-      headers: { Accept: "application/json" },
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...fields, fileName }),
     });
     const contentType = response.headers.get("content-type") || "";
-    if (!response.ok || !contentType.includes("application/json")) return false;
-    const data = (await response.json()) as { ok?: boolean; success?: boolean | string };
-    return data.ok === true || String(data.success) === "true";
+    if (!contentType.includes("application/json")) return null;
+    return (await response.json()) as EnquirySendResult;
   } catch {
-    return false;
+    return null;
   }
 }
 
-async function sendWithFormSubmit(fields: EnquiryFields, file: File | null) {
-  const results = await Promise.all(
-    ENQUIRY_RECIPIENTS.map(async (recipient) => {
-      const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: buildEnquiryPayload(fields, file),
-      });
-      const data = (await response.json().catch(() => ({}))) as { success?: boolean | string };
-      return response.ok && String(data.success) !== "false";
-    }),
-  );
-
-  if (!results.some(Boolean)) {
-    throw new Error("Unable to send your enquiry. Please email sales@melighting.com.au.");
-  }
-}
-
-export async function submitEnquiry(form: HTMLFormElement, source: string) {
+export async function submitEnquiry(
+  form: HTMLFormElement,
+  source: string,
+): Promise<{ needsActivation?: boolean }> {
   const input = new FormData(form);
-  if (String(input.get("company") || "").trim()) return;
+  if (String(input.get("company") || "").trim()) return {};
 
   const fields: EnquiryFields = {
     name: String(input.get("name") || input.get("hero-name") || "").trim(),
@@ -55,9 +42,14 @@ export async function submitEnquiry(form: HTMLFormElement, source: string) {
     throw new Error("Please provide your name and email.");
   }
 
-  const file = readFile(input);
+  const fileName = readFileName(input);
 
-  if (await postEnquiry("/api/enquiry", buildEnquiryPayload(fields, file))) return;
-  if (await postEnquiry("/send-enquiry.php", buildEnquiryPayload(fields, file))) return;
-  await sendWithFormSubmit(fields, file);
+  // Browser Origin is required by FormSubmit; send from the page first.
+  const direct = await postToFormSubmit(fields, fileName);
+  if (direct.ok) return { needsActivation: direct.needsActivation };
+
+  const local = await postLocalApi(fields, fileName);
+  if (local?.ok) return { needsActivation: local.needsActivation };
+
+  throw new Error(direct.error || "Unable to send your enquiry. Please email sales@melighting.com.au.");
 }

@@ -178,147 +178,83 @@ const solutions = [
 ];
 
 const replacementImage = (filename: string) => `/replacements/${encodeURIComponent(filename)}`;
+const projectTitleFromFile = (filename: string) =>
+  filename
+    .replace(/\.[^.]+$/, "")
+    .replace(/\s*\d+$/, "")
+    .replace(/\s+/g, " ")
+    .trim();
 
 const bestSellers = [
   {
-    name: "Linear LED Profiles",
+    name: projectTitleFromFile("Dural 3.png"),
     eyebrow: "ARCHITECTURAL LINEAR",
     description: "Seamless lines of high-quality light for joinery, ceilings, retail and circulation spaces.",
     specs: ["Recessed, surface & suspended", "Low glare · High CRI"],
     image: replacementImage("Dural 3.png"),
   },
   {
-    name: "LED Neon Flex",
+    name: projectTitleFromFile("Forest Ville 2.png"),
     eyebrow: "FLEXIBLE LINEAR",
     description: "Dot-free illumination that follows tight curves across facades, signage and feature details.",
     specs: ["IP67 / IP68 rated", "Tight bend radius"],
     image: replacementImage("Forest Ville 2.png"),
   },
   {
-    name: "DMX Pixel LED Systems",
-    eyebrow: "DYNAMIC CONTROL",
-    description: "Individually addressable lighting for expressive colour effects across venues and landmarks.",
-    specs: ["DMX / SPI control", "Dynamic colour effects"],
-    image: replacementImage("Forest Ville 3.png"),
-  },
-  {
-    name: "Inground Uplights",
+    name: projectTitleFromFile("City Retreat 3.png"),
     eyebrow: "EXTERIOR UPLIGHT",
     description: "Precision in-ground fixtures for trees, columns, facades and high-traffic landscape zones.",
     specs: ["Drive-over rated", "IP67+ · Precision optics"],
     image: replacementImage("City Retreat 3.png"),
   },
   {
-    name: "Surface Mounted Downlights",
+    name: projectTitleFromFile("Geelong 3.png"),
     eyebrow: "ARCHITECTURAL CYLINDERS",
     description: "Clean surface-mounted forms that deliver high output without compromising the ceiling plane.",
     specs: ["High output", "Clean installation"],
     image: replacementImage("Geelong 3.png"),
   },
   {
-    name: "Recessed Downlights",
-    eyebrow: "TRIMLESS & DEEP-SET",
-    description: "Comfortable, controlled downlighting with a refined finish for resolved architectural ceilings.",
-    specs: ["Anti-glare optics", "High CRI"],
-    image: replacementImage("Geelong 2.png"),
-  },
-  {
-    name: "Track Lighting Systems",
+    name: projectTitleFromFile("Gold Coast 1.png"),
     eyebrow: "ADJUSTABLE SYSTEMS",
     description: "Flexible high-performance lighting for retail, galleries, task zones and evolving interiors.",
     specs: ["DALI / 3-phase", "Adjustable heads"],
     image: replacementImage("Gold Coast 1.png"),
   },
   {
-    name: "Wall Grazers & Washers",
-    eyebrow: "FACADE LIGHTING",
-    description: "Linear optical systems that reveal texture and wash feature walls or facades evenly.",
-    specs: ["Uniform wash", "Linear solutions"],
-    image: replacementImage("Dural 1.png"),
-  },
-  {
-    name: "Outdoor Floodlights",
+    name: projectTitleFromFile("Perth Hills 1.png"),
     eyebrow: "HIGH-OUTPUT EXTERIOR",
     description: "Dependable wide-beam illumination for car parks, facades and demanding outdoor applications.",
     specs: ["High-output LED", "Wide beam · IP-rated"],
     image: replacementImage("Perth Hills 1.png"),
   },
   {
-    name: "Bollard Lighting",
+    name: projectTitleFromFile("Bonny Hills 1.png"),
     eyebrow: "PATHWAY LIGHTING",
     description: "Low-glare landscape fixtures that guide movement through pathways and public spaces.",
     specs: ["Controlled distribution", "Durable outdoor build"],
     image: replacementImage("Bonny Hills 1.png"),
   },
   {
-    name: "Step & Marker Lights",
+    name: projectTitleFromFile("Curl Curl 1.png"),
     eyebrow: "LOW-LEVEL GUIDANCE",
     description: "Subtle integrated lighting that supports safe, calm movement through stairs and walkways.",
     specs: ["Safety compliant", "Subtle integration"],
     image: replacementImage("Curl Curl 1.png"),
   },
   {
-    name: "Pendant Lighting Systems",
+    name: projectTitleFromFile("Greenarce 2.png"),
     eyebrow: "FEATURE SYSTEMS",
     description: "Statement and functional pendant forms for offices, lobbies and expressive interiors.",
     specs: ["Linear & feature forms", "Acoustic options"],
     image: replacementImage("Greenarce 2.png"),
   },
   {
-    name: "Architectural Feature Rings",
-    eyebrow: "CUSTOM SUSPENDED",
-    description: "Circular feature lighting engineered in custom diameters for confident spatial statements.",
-    specs: ["Custom diameters", "DMX / dimmable"],
-    image: replacementImage("Greenarce 3.png"),
-  },
-  {
-    name: "Custom Fabrication Lighting",
-    eyebrow: "BESPOKE ENGINEERING",
-    description: "Project-specific lighting developed around architectural intent and complex integration needs.",
-    specs: ["Bespoke builds", "Engineered solutions"],
-    image: replacementImage("Dural 2.png"),
-  },
-  {
-    name: "IP-Rated Strip Lighting",
-    eyebrow: "WATERPROOF LINEAR",
-    description: "Flexible, efficient linear light for joinery and robust indoor or outdoor detailing.",
-    specs: ["Waterproof options", "High output & efficiency"],
-    image: replacementImage("City Retreat 1.png"),
-  },
-  {
-    name: "Smart Lighting Controls",
+    name: projectTitleFromFile("Lane Cove 1.png"),
     eyebrow: "CONNECTED CONTROL",
     description: "A unified control layer for scene setting, wall interfaces and connected project automation.",
     specs: ["App + wall interface", "Automation ready"],
     image: replacementImage("Lane Cove 1.png"),
-  },
-  {
-    name: "Cabinet & Joinery Lighting",
-    eyebrow: "INTEGRATED DETAIL",
-    description: "Concealed profile systems that produce clean, uniform light through cabinetry and interiors.",
-    specs: ["Concealed profiles", "Uniform output"],
-    image: replacementImage("Curl Curl 3.png"),
-  },
-  {
-    name: "High Bay Lighting",
-    eyebrow: "INDUSTRIAL PERFORMANCE",
-    description: "Efficient high-lumen luminaires designed for warehouses and other large-volume spaces.",
-    specs: ["High lumen output", "Long lifespan"],
-    image: replacementImage("Geelong 1.png"),
-  },
-  {
-    name: "LED Drivers & Power Systems",
-    eyebrow: "POWER & CONTROL",
-    description: "Reliable drivers and centralised power systems selected for stable, controllable operation.",
-    specs: ["DALI / DMX / 0–10V", "Stable operation"],
-    image: replacementImage("Lane Cove 2.png"),
-  },
-  {
-    name: "Emergency Lighting Systems",
-    eyebrow: "COMPLIANT SAFETY",
-    description: "Integrated or standalone emergency solutions for compliant, dependable project safety.",
-    specs: ["Battery backup systems", "Code-required installations"],
-    image: replacementImage("Curl Curl 2.png"),
   },
 ];
 
@@ -464,7 +400,13 @@ export default function Home() {
     const form = event.currentTarget;
     setSending(true);
     try {
-      await submitEnquiry(form, source);
+      const result = await submitEnquiry(form, source);
+      if (result.needsActivation) {
+        toast.message("Confirm email delivery", {
+          description: "Click the Activate Form link emailed to sales@melighting.com.au and shiv@proairmarketing.com.au, then submit again.",
+        });
+        return;
+      }
       form.reset();
       if (source.startsWith("Hero")) setHeroFileName("");
       else setContactFileName("");
@@ -624,7 +566,7 @@ export default function Home() {
               return (
                 <article
                   className={`best-seller-card ${isActive ? "is-active" : ""}`}
-                  key={product.name}
+                  key={product.image}
                   aria-hidden={distance > 2 ? "true" : undefined}
                   style={{
                     "--x": `${offset * 390}px`,
@@ -652,7 +594,7 @@ export default function Home() {
           </div>
           <div className="best-seller-dots" aria-label="Select a best seller">
             {bestSellers.map((product, index) => (
-              <button type="button" key={product.name} className={index === bestSellerIndex ? "is-active" : ""} onClick={() => setBestSellerIndex(index)} aria-label={`Show ${product.name}`} aria-current={index === bestSellerIndex ? "true" : undefined} />
+              <button type="button" key={product.image} className={index === bestSellerIndex ? "is-active" : ""} onClick={() => setBestSellerIndex(index)} aria-label={`Show ${product.name}`} aria-current={index === bestSellerIndex ? "true" : undefined} />
             ))}
           </div>
           <div className="best-seller-footer motion-reveal">

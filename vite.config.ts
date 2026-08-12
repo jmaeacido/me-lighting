@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
-import { forwardEnquiryToInboxes } from "./shared/enquiry";
+import { postToFormSubmit, type EnquiryFields } from "./shared/enquiry";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -221,17 +221,17 @@ function vitePluginEnquiryApi(): Plugin {
         });
         req.on("end", async () => {
           try {
-            const buffer = Buffer.concat(chunks);
-            const body = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+            const raw = Buffer.concat(chunks).toString("utf8");
+            const fields = JSON.parse(raw) as EnquiryFields & { fileName?: string };
             const originHeader = req.headers.origin;
             const origin = Array.isArray(originHeader) ? originHeader[0] : originHeader;
-            const ok = await forwardEnquiryToInboxes(
-              body,
-              req.headers["content-type"] || "multipart/form-data",
+            const result = await postToFormSubmit(
+              fields,
+              fields.fileName || "",
               origin || "http://localhost:3000",
             );
-            res.writeHead(ok ? 200 : 502, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ ok }));
+            res.writeHead(result.ok ? 200 : 502, { "Content-Type": "application/json" });
+            res.end(JSON.stringify(result));
           } catch (error) {
             res.writeHead(500, { "Content-Type": "application/json" });
             res.end(JSON.stringify({ ok: false, error: String(error) }));

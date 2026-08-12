@@ -11,43 +11,70 @@ export type EnquiryFields = {
   source: string;
 };
 
-export function buildEnquiryPayload(fields: EnquiryFields, file: File | null): FormData {
-  const payload = new FormData();
-  payload.append("name", fields.name);
-  payload.append("email", fields.email);
-  payload.append("project", fields.project || "Not specified");
-  payload.append("source", fields.source);
-  if (fields.message) payload.append("message", fields.message);
-  payload.append("_subject", `ME Lighting enquiry${fields.project ? `: ${fields.project}` : ""}`);
-  payload.append("_template", "table");
-  payload.append("_captcha", "false");
-  payload.append("_replyto", fields.email);
-  if (file) payload.append("attachment", file, file.name);
-  return payload;
+export type EnquirySendResult = {
+  ok: boolean;
+  needsActivation?: boolean;
+  error?: string;
+};
+
+function buildJsonPayload(fields: EnquiryFields, fileName: string) {
+  const message = fields.message || "No message provided.";
+  const withFile = fileName
+    ? `${message}\n\nSelected file: ${fileName}`
+    : message;
+
+  return {
+    name: fields.name,
+    email: fields.email,
+    project: fields.project || "Not specified",
+    source: fields.source,
+    message: withFile,
+    _subject: `ME Lighting enquiry${fields.project ? `: ${fields.project}` : ""}`,
+    _template: "table",
+    _replyto: fields.email,
+  };
 }
 
-export async function forwardEnquiryToInboxes(
-  body: ArrayBuffer,
-  contentType: string,
+function interpret(data: { success?: boolean | string; message?: string }): "ok" | "activation" | "fail" {
+  if (String(data.success) === "true") return "ok";
+  if (/activat/i.test(data.message || "")) return "activation";
+  return "fail";
+}
+
+export async function postToFormSubmit(
+  fields: EnquiryFields,
+  fileName = "",
   origin?: string | null,
-): Promise<boolean> {
-  const referer = origin ? (origin.endsWith("/") ? origin : `${origin}/`) : "https://me-lighting.vercel.app/";
-  const results = await Promise.all(
+): Promise<EnquirySendResult> {
+  const payload = JSON.stringify(buildJsonPayload(fields, fileName));
+  const headers: Record<string, string> = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+  if (origin) {
+    headers.Origin = origin;
+    headers.Referer = origin.endsWith("/") ? origin : `${origin}/`;
+  }
+
+  const outcomes = await Promise.all(
     ENQUIRY_RECIPIENTS.map(async (recipient) => {
-      const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`, {
+      const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": contentType,
-          Origin: origin || "https://me-lighting.vercel.app",
-          Referer: referer,
-        },
-        body: body.slice(0),
+        headers,
+        body: payload,
       });
-      const data = (await response.json().catch(() => ({}))) as { success?: boolean | string };
-      return response.ok && String(data.success) !== "false";
+      const data = (await response.json().catch(() => ({}))) as {
+        success?: boolean | string;
+        message?: string;
+      };
+      return interpret(data);
     }),
   );
 
-  return results.some(Boolean);
+  if (outcomes.includes("ok")) return { ok: true };
+  if (outcomes.includes("activation")) return { ok: true, needsActivation: true };
+  return {
+    ok: false,
+    error: "Unable to send your enquiry. Please email sales@melighting.com.au.",
+  };
 }
