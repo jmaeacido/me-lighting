@@ -575,7 +575,7 @@ export default function Home() {
           <div className="solution-carousel-head motion-reveal">
             <div className="section-heading section-heading--center">
               <p className="eyebrow">WHAT ARE YOU WORKING ON?</p>
-              <h2>Let’s find the right lighting for your project.</h2>
+              <h2>Lighting Solutions Homeowners Love</h2>
             </div>
             <p className="carousel-kicker"><span /> CONTINUOUSLY EXPLORING LIGHT</p>
           </div>
@@ -613,7 +613,7 @@ export default function Home() {
         <section id="best-sellers" className="best-sellers-section" aria-labelledby="best-sellers-title">
           <div className="best-sellers-heading motion-reveal">
             <p className="eyebrow">MOST SPECIFIED</p>
-            <h2 id="best-sellers-title">Lighting Solutions Homeowners Love</h2>
+            <h2 id="best-sellers-title">Our Latest Projects</h2>
             <p>A considered edit of architectural fixtures for layered, comfortable light.</p>
           </div>
           <div className="best-seller-stage">
