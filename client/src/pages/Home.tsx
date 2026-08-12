@@ -189,61 +189,51 @@ const bestSellers = [
   {
     name: projectTitleFromFile("Dural 3.png"),
     eyebrow: "ARCHITECTURAL LINEAR",
-    specs: ["Recessed, surface & suspended", "Low glare · High CRI"],
     image: replacementImage("Dural 3.png"),
   },
   {
     name: projectTitleFromFile("Forest Ville 2.png"),
     eyebrow: "FLEXIBLE LINEAR",
-    specs: ["IP67 / IP68 rated", "Tight bend radius"],
     image: replacementImage("Forest Ville 2.png"),
   },
   {
     name: projectTitleFromFile("City Retreat 3.png"),
     eyebrow: "EXTERIOR UPLIGHT",
-    specs: ["Drive-over rated", "IP67+ · Precision optics"],
     image: replacementImage("City Retreat 3.png"),
   },
   {
     name: projectTitleFromFile("Geelong 3.png"),
     eyebrow: "ARCHITECTURAL CYLINDERS",
-    specs: ["High output", "Clean installation"],
     image: replacementImage("Geelong 3.png"),
   },
   {
     name: projectTitleFromFile("Gold Coast 1.png"),
     eyebrow: "ADJUSTABLE SYSTEMS",
-    specs: ["DALI / 3-phase", "Adjustable heads"],
     image: replacementImage("Gold Coast 1.png"),
   },
   {
     name: projectTitleFromFile("Perth Hills 1.png"),
     eyebrow: "HIGH-OUTPUT EXTERIOR",
-    specs: ["High-output LED", "Wide beam · IP-rated"],
     image: replacementImage("Perth Hills 1.png"),
   },
   {
     name: projectTitleFromFile("Bonny Hills 1.png"),
     eyebrow: "PATHWAY LIGHTING",
-    specs: ["Controlled distribution", "Durable outdoor build"],
     image: replacementImage("Bonny Hills 1.png"),
   },
   {
     name: projectTitleFromFile("Curl Curl 1.png"),
     eyebrow: "LOW-LEVEL GUIDANCE",
-    specs: ["Safety compliant", "Subtle integration"],
     image: replacementImage("Curl Curl 1.png"),
   },
   {
     name: projectTitleFromFile("Greenarce 2.png"),
     eyebrow: "FEATURE SYSTEMS",
-    specs: ["Linear & feature forms", "Acoustic options"],
     image: replacementImage("Greenarce 2.png"),
   },
   {
     name: projectTitleFromFile("Lane Cove 1.png"),
     eyebrow: "CONNECTED CONTROL",
-    specs: ["App + wall interface", "Automation ready"],
     image: replacementImage("Lane Cove 1.png"),
   },
 ];
@@ -570,9 +560,6 @@ export default function Home() {
                   <div className="best-seller-copy">
                     <p>{product.eyebrow}</p>
                     <h3>{product.name}</h3>
-                    <ul className="best-seller-specs">
-                      {product.specs.map((spec) => <li key={spec}>{spec}</li>)}
-                    </ul>
                     <a href="#contact" tabIndex={isActive ? 0 : -1}>View product range <ArrowRight size={16} /></a>
                   </div>
                 </article>
