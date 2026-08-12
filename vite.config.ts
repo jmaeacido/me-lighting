@@ -225,11 +225,7 @@ function vitePluginEnquiryApi(): Plugin {
             const fields = JSON.parse(raw) as EnquiryFields & { fileName?: string };
             const originHeader = req.headers.origin;
             const origin = Array.isArray(originHeader) ? originHeader[0] : originHeader;
-            const result = await postToFormSubmit(
-              fields,
-              fields.fileName || "",
-              origin || "http://localhost:3000",
-            );
+            const result = await postToFormSubmit(fields, origin || "http://localhost:3000");
             res.writeHead(result.ok ? 200 : 502, { "Content-Type": "application/json" });
             res.end(JSON.stringify(result));
           } catch (error) {

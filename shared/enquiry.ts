@@ -17,25 +17,20 @@ export type EnquirySendResult = {
   error?: string;
 };
 
-function buildJsonPayload(fields: EnquiryFields, fileName: string) {
-  const message = fields.message || "No message provided.";
-  const withFile = fileName
-    ? `${message}\n\nSelected file: ${fileName}`
-    : message;
-
+function buildJsonPayload(fields: EnquiryFields) {
   return {
     name: fields.name,
     email: fields.email,
     project: fields.project || "Not specified",
     source: fields.source,
-    message: withFile,
+    message: fields.message || "No message provided.",
     _subject: `ME Lighting enquiry${fields.project ? `: ${fields.project}` : ""}`,
     _template: "table",
     _replyto: fields.email,
   };
 }
 
-function interpret(data: { success?: boolean | string; message?: string }): "ok" | "activation" | "fail" {
+export function interpret(data: { success?: boolean | string; message?: string }): "ok" | "activation" | "fail" {
   if (String(data.success) === "true") return "ok";
   if (/activat/i.test(data.message || "")) return "activation";
   return "fail";
@@ -43,10 +38,9 @@ function interpret(data: { success?: boolean | string; message?: string }): "ok"
 
 export async function postToFormSubmit(
   fields: EnquiryFields,
-  fileName = "",
   origin?: string | null,
 ): Promise<EnquirySendResult> {
-  const payload = JSON.stringify(buildJsonPayload(fields, fileName));
+  const payload = JSON.stringify(buildJsonPayload(fields));
   const headers: Record<string, string> = {
     Accept: "application/json",
     "Content-Type": "application/json",

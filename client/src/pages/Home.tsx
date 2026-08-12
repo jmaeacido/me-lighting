@@ -340,6 +340,17 @@ export default function Home() {
   const [bestSellerIndex, setBestSellerIndex] = useState(0);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("sent") !== "1") return;
+    toast.success("Enquiry sent", {
+      description: "Thanks — our team will be in touch shortly.",
+    });
+    params.delete("sent");
+    const next = `${window.location.pathname}${params.toString() ? `?${params}` : ""}${window.location.hash || "#contact"}`;
+    window.history.replaceState({}, "", next);
+  }, []);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -381,6 +392,7 @@ export default function Home() {
     setSending(true);
     try {
       const result = await submitEnquiry(form, source);
+      if (result.redirected) return;
       if (result.needsActivation) {
         toast.message("Confirm email delivery", {
           description: "Click the Activate Form link emailed to sales@melighting.com.au and shiv@proairmarketing.com.au, then submit again.",

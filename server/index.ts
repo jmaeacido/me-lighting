@@ -21,7 +21,7 @@ async function startServer() {
         const fields = JSON.parse(Buffer.concat(chunks).toString("utf8")) as EnquiryFields & { fileName?: string };
         const originHeader = req.headers.origin;
         const origin = Array.isArray(originHeader) ? originHeader[0] : originHeader;
-        const result = await postToFormSubmit(fields, fields.fileName || "", origin);
+        const result = await postToFormSubmit(fields, origin);
         res.status(result.ok ? 200 : 502).json(result);
       } catch (error) {
         res.status(500).json({ ok: false, error: String(error) });

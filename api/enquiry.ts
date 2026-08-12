@@ -16,7 +16,6 @@ export default async function handler(request: Request) {
 
   const result = await postToFormSubmit(
     fields,
-    fields.fileName || "",
     request.headers.get("origin") || "https://me-lighting.vercel.app",
   );
 
