@@ -128,6 +128,8 @@
 .hero-actions { display:flex; flex-wrap:wrap; align-items:stretch; gap:16px 28px; margin-top:28px; }
 .button { min-height:52px; padding:0 24px; border:0; display:inline-flex; align-items:center; justify-content:center; gap:11px; text-decoration:none; text-transform:uppercase; letter-spacing:.065em; font-size:11px; font-weight:800; transition:transform 160ms var(--ease-out), background 180ms var(--ease-out); }
 .button:active { transform:scale(.97); }
+.button:disabled { cursor:wait; opacity:.72; transform:none; }
+.form-honeypot { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 .button--gold { position:relative; color:#15120d; background:var(--me-gold); box-shadow:0 12px 38px rgba(135,93,29,.18); }
 .button--gold::after { content:""; width:18px; height:1px; margin-left:1px; background:#17130d; }
 .button--gold:hover { background:#d7b46f; }

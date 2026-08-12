@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
+import { forwardEnquiryToInboxes } from "./shared/enquiry";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -207,7 +208,41 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+function vitePluginEnquiryApi(): Plugin {
+  return {
+    name: "enquiry-api",
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use("/api/enquiry", (req, res, next) => {
+        if (req.method !== "POST") return next();
+
+        const chunks: Buffer[] = [];
+        req.on("data", (chunk) => {
+          chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+        });
+        req.on("end", async () => {
+          try {
+            const buffer = Buffer.concat(chunks);
+            const body = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+            const originHeader = req.headers.origin;
+            const origin = Array.isArray(originHeader) ? originHeader[0] : originHeader;
+            const ok = await forwardEnquiryToInboxes(
+              body,
+              req.headers["content-type"] || "multipart/form-data",
+              origin || "http://localhost:3000",
+            );
+            res.writeHead(ok ? 200 : 502, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ ok }));
+          } catch (error) {
+            res.writeHead(500, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ ok: false, error: String(error) }));
+          }
+        });
+      });
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy(), vitePluginEnquiryApi()];
 
 export default defineConfig({
   plugins,

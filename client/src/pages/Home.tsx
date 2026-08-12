@@ -50,6 +50,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { toast } from "sonner";
+import { submitEnquiry } from "@/lib/submitEnquiry";
 
 const HERO_IMAGE = "/manus-storage/me-lighting-hero_05467120.jpg";
 const OUTDOOR_IMAGE = "/site-draft/outdoor.png";
@@ -417,7 +418,9 @@ function Brand() {
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [fileName, setFileName] = useState("");
+  const [heroFileName, setHeroFileName] = useState("");
+  const [contactFileName, setContactFileName] = useState("");
+  const [sending, setSending] = useState(false);
   const [bestSellerIndex, setBestSellerIndex] = useState(0);
 
   useEffect(() => {
@@ -455,11 +458,26 @@ export default function Home() {
 
   const closeMenu = () => setMobileOpen(false);
 
-  const submitBrief = (event: React.FormEvent<HTMLFormElement>) => {
+  const submitBrief = async (event: React.FormEvent<HTMLFormElement>, source: string) => {
     event.preventDefault();
-    toast.success("Project brief prepared", {
-      description: "This preview form is ready to connect to your preferred CRM or inbox.",
-    });
+    if (sending) return;
+    const form = event.currentTarget;
+    setSending(true);
+    try {
+      await submitEnquiry(form, source);
+      form.reset();
+      if (source.startsWith("Hero")) setHeroFileName("");
+      else setContactFileName("");
+      toast.success("Enquiry sent", {
+        description: "Thanks — our team will be in touch shortly.",
+      });
+    } catch (error) {
+      toast.error("Unable to send enquiry", {
+        description: error instanceof Error ? error.message : "Please try again or email sales@melighting.com.au.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -513,10 +531,11 @@ export default function Home() {
                 <a className="button button--outline-light" href="tel:+611800411754"><Phone size={17} /> Call 1800 411 754</a>
               </div>
             </div>
-            <form className="hero-brief-form" onSubmit={submitBrief}>
+            <form className="hero-brief-form" onSubmit={(event) => void submitBrief(event, "Hero — Free plan review")}>
               <p className="eyebrow">FREE PLAN REVIEW</p>
               <h2>Tell us about your project.</h2>
               <p>Share the basics and a lighting specialist will help identify your next step.</p>
+              <input className="form-honeypot" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <label><span>Your name</span><input name="hero-name" type="text" placeholder="Alex Morgan" required /></label>
               <label><span>Email address</span><input name="hero-email" type="email" placeholder="alex@example.com" required /></label>
               <label>
@@ -528,10 +547,10 @@ export default function Home() {
               </label>
               <label className="hero-file-field">
                 <span>Plans or inspiration</span>
-                <input name="hero-plans" type="file" accept=".pdf,.png,.jpg,.jpeg" onChange={(event) => setFileName(event.target.files?.[0]?.name ?? "")} />
-                <div><Upload size={17} /><span>{fileName || "Choose PDF or image"}</span></div>
+                <input name="hero-plans" type="file" accept=".pdf,.png,.jpg,.jpeg" onChange={(event) => setHeroFileName(event.target.files?.[0]?.name ?? "")} />
+                <div><Upload size={17} /><span>{heroFileName || "Choose PDF or image"}</span></div>
               </label>
-              <button className="button button--gold" type="submit">Request expert advice <ArrowRight size={17} /></button>
+              <button className="button button--gold" type="submit" disabled={sending}>{sending ? "Sending…" : "Request expert advice"} {!sending && <ArrowRight size={17} />}</button>
             </form>
           </div>
           <div id="about" className="hero-usp-grid" aria-label="Why choose ME Lighting">
@@ -734,7 +753,8 @@ export default function Home() {
               <a href="mailto:sales@melighting.com.au"><Mail size={17} /> sales@melighting.com.au</a>
             </div>
           </div>
-          <form className="brief-form" onSubmit={submitBrief}>
+          <form className="brief-form" onSubmit={(event) => void submitBrief(event, "Contact — Project brief")}>
+            <input className="form-honeypot" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
             <label>
               <span>Your name</span>
               <input name="name" type="text" placeholder="Alex Morgan" required />
@@ -756,15 +776,15 @@ export default function Home() {
                 name="plans"
                 type="file"
                 accept=".pdf,.png,.jpg,.jpeg"
-                onChange={(event) => setFileName(event.target.files?.[0]?.name ?? "")}
+                onChange={(event) => setContactFileName(event.target.files?.[0]?.name ?? "")}
               />
-              <div><Upload size={18} /><span>{fileName || "Choose PDF or image"}</span></div>
+              <div><Upload size={18} /><span>{contactFileName || "Choose PDF or image"}</span></div>
             </label>
             <label className="form-wide">
               <span>What can we help with?</span>
               <textarea name="message" rows={4} placeholder="Tell us about the space, timeline and what you would like the lighting to achieve." />
             </label>
-            <button className="button button--gold form-wide" type="submit">Send project brief <ArrowRight size={18} /></button>
+            <button className="button button--gold form-wide" type="submit" disabled={sending}>{sending ? "Sending…" : "Send project brief"} {!sending && <ArrowRight size={18} />}</button>
           </form>
         </section>
       </main>
