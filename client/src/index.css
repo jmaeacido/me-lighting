@@ -154,9 +154,12 @@
 .hero-brief-form input,.hero-brief-form select { width:100%; height:43px; padding:0 12px; border:0; border-bottom:1px solid rgba(255,255,255,.24); border-radius:0; color:#fff; background:#181714; font:400 12px/1 "DM Sans",sans-serif; transition:border-color 160ms var(--ease-out),box-shadow 160ms var(--ease-out); }
 .hero-brief-form input::placeholder { color:rgba(255,255,255,.32); }
 .hero-brief-form input:focus,.hero-brief-form select:focus { outline:0; border-color:var(--me-gold); box-shadow:0 0 0 3px rgba(201,163,92,.12); }
-.hero-file-field input { position:absolute; width:1px; height:1px; opacity:0; }
-.hero-file-field > div { min-height:43px; padding:0 12px; border:1px dashed rgba(201,163,92,.5); display:flex; align-items:center; gap:9px; color:rgba(255,255,255,.58); background:#181714; font-size:11px; }
-.hero-file-field > div svg { flex:none; color:var(--me-gold); }
+.hero-file-field .file-picker,
+.file-field .file-picker { position:relative; display:block; }
+.hero-brief-form .hero-file-field input[type="file"],
+.brief-form .file-field input[type="file"] { position:absolute; inset:0; z-index:2; width:100%; height:100%; margin:0; padding:0; opacity:0; cursor:pointer; font-size:16px; border:0; background:transparent; box-shadow:none; }
+.hero-file-field .file-picker-ui { min-height:43px; padding:0 12px; border:1px dashed rgba(201,163,92,.5); display:flex; align-items:center; gap:9px; color:rgba(255,255,255,.58); background:#181714; font-size:11px; }
+.hero-file-field .file-picker-ui svg { flex:none; color:var(--me-gold); }
 .hero-brief-form .button { width:100%; min-height:48px; margin-top:3px; }
 .hero-usp-grid { position:absolute; z-index:4; left:50%; bottom:-178px; width:min(1400px,94vw); transform:translateX(-50%); display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
 .hero-usp-card { position:relative; min-width:0; height:clamp(300px,28vw,360px); overflow:hidden; color:var(--me-ink); background:#f2eee3; border:1px solid rgba(106,89,57,.35); box-shadow:0 28px 70px rgba(10,8,5,.28),0 5px 14px rgba(10,8,5,.14); transition:transform 240ms var(--ease-out),box-shadow 240ms var(--ease-out); }
@@ -332,9 +335,8 @@
 .brief-form input:focus, .brief-form select:focus, .brief-form textarea:focus { outline:0; border-color:#b28b43; box-shadow:0 0 0 3px rgba(201,163,92,.15); }
 .brief-form textarea { resize:vertical; }
 .form-wide { grid-column:1/-1; }
-.file-field input { position:absolute; width:1px; height:1px; opacity:0; }
-.file-field > div { min-height:46px; padding:0 14px; border:1px dashed rgba(201,163,92,.55); display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.55); background:#171613; font-size:12px; }
-.file-field > div svg { color:#a77e37; }
+.file-field .file-picker-ui { min-height:46px; padding:0 14px; border:1px dashed rgba(201,163,92,.55); display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.55); background:#171613; font-size:12px; }
+.file-field .file-picker-ui svg { color:#a47d37; }
 
 .site-footer { color:#fff; background:#080808; }
 .footer-main { max-width:1400px; margin:0 auto; padding:49px 5vw 38px; display:grid; grid-template-columns:1.25fr repeat(3,.7fr) 1fr; gap:38px; }

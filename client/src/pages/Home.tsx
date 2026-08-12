@@ -481,8 +481,15 @@ export default function Home() {
               </label>
               <label className="hero-file-field">
                 <span>Plans or inspiration</span>
-                <input name="hero-plans" type="file" accept=".pdf,.png,.jpg,.jpeg" onChange={(event) => setHeroFileName(event.target.files?.[0]?.name ?? "")} />
-                <div><Upload size={17} /><span>{heroFileName || "Choose PDF or image"}</span></div>
+                <span className="file-picker">
+                  <input
+                    name="hero-plans"
+                    type="file"
+                    accept="image/*,application/pdf,.pdf,.png,.jpg,.jpeg,.webp"
+                    onChange={(event) => setHeroFileName(event.target.files?.[0]?.name ?? "")}
+                  />
+                  <span className="file-picker-ui"><Upload size={17} /><span>{heroFileName || "Choose PDF or image"}</span></span>
+                </span>
               </label>
               <button className="button button--gold" type="submit" disabled={sending}>{sending ? "Sending…" : "Request expert advice"} {!sending && <ArrowRight size={17} />}</button>
             </form>
@@ -702,13 +709,15 @@ export default function Home() {
             </label>
             <label className="file-field">
               <span>Plans or inspiration</span>
-              <input
-                name="plans"
-                type="file"
-                accept=".pdf,.png,.jpg,.jpeg"
-                onChange={(event) => setContactFileName(event.target.files?.[0]?.name ?? "")}
-              />
-              <div><Upload size={18} /><span>{contactFileName || "Choose PDF or image"}</span></div>
+              <span className="file-picker">
+                <input
+                  name="plans"
+                  type="file"
+                  accept="image/*,application/pdf,.pdf,.png,.jpg,.jpeg,.webp"
+                  onChange={(event) => setContactFileName(event.target.files?.[0]?.name ?? "")}
+                />
+                <span className="file-picker-ui"><Upload size={18} /><span>{contactFileName || "Choose PDF or image"}</span></span>
+              </span>
             </label>
             <label className="form-wide">
               <span>What can we help with?</span>
