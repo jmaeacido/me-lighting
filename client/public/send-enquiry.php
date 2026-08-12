@@ -36,7 +36,6 @@ if ($name === '' || $email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL))
 }
 
 $recipients = [
-    'sales@melighting.com.au',
     'shiv@proairmarketing.com.au',
 ];
 

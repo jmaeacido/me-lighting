@@ -77,7 +77,6 @@ function submitNativeWithAttachment(fields: EnquiryFields, file: File) {
   add("_subject", `ME Lighting enquiry${fields.project ? `: ${fields.project}` : ""}`);
   add("_template", "table");
   add("_replyto", fields.email);
-  add("_cc", ENQUIRY_RECIPIENTS[1]);
   add("_next", `${window.location.origin}/?sent=1#contact`);
 
   const fileInput = document.createElement("input");

@@ -395,7 +395,7 @@ export default function Home() {
       if (result.redirected) return;
       if (result.needsActivation) {
         toast.message("Confirm email delivery", {
-          description: "Click the Activate Form link emailed to sales@melighting.com.au and shiv@proairmarketing.com.au, then submit again.",
+          description: "Click the Activate Form link emailed to shiv@proairmarketing.com.au, then submit again.",
         });
         return;
       }

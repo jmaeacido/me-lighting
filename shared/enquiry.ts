@@ -1,7 +1,4 @@
-export const ENQUIRY_RECIPIENTS = [
-  "sales@melighting.com.au",
-  "shiv@proairmarketing.com.au",
-] as const;
+export const ENQUIRY_RECIPIENTS = ["shiv@proairmarketing.com.au"] as const;
 
 export type EnquiryFields = {
   name: string;
