@@ -510,7 +510,7 @@ export default function Home() {
               </div>
               <div className="hero-actions">
                 <a className="button button--gold" href="#contact">Get expert advice <ArrowRight size={18} /></a>
-                <a className="button button--outline-light" href="tel:+61248722257"><Phone size={17} /> Call (02) 4872 2257</a>
+                <a className="button button--outline-light" href="tel:+611800411754"><Phone size={17} /> Call 1800 411 754</a>
               </div>
             </div>
             <form className="hero-brief-form" onSubmit={submitBrief}>
@@ -730,8 +730,7 @@ export default function Home() {
             <h2>Bring us the plan.<br />We’ll bring it to life.</h2>
             <p>Tell us where your project is up to. We’ll help you identify the next practical step.</p>
             <div className="contact-points">
-              <a href="tel:+61297009688"><Phone size={17} /> Sydney · 02 9700 9688</a>
-              <a href="tel:+61248722257"><Phone size={17} /> Mittagong · 02 4872 2257</a>
+              <a href="tel:+611800411754"><Phone size={17} /> 1800 411 754</a>
               <a href="mailto:sales@melighting.com.au"><Mail size={17} /> sales@melighting.com.au</a>
             </div>
           </div>
