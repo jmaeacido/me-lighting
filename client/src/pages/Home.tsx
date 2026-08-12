@@ -189,70 +189,60 @@ const bestSellers = [
   {
     name: projectTitleFromFile("Dural 3.png"),
     eyebrow: "ARCHITECTURAL LINEAR",
-    description: "Seamless lines of high-quality light for joinery, ceilings, retail and circulation spaces.",
     specs: ["Recessed, surface & suspended", "Low glare · High CRI"],
     image: replacementImage("Dural 3.png"),
   },
   {
     name: projectTitleFromFile("Forest Ville 2.png"),
     eyebrow: "FLEXIBLE LINEAR",
-    description: "Dot-free illumination that follows tight curves across facades, signage and feature details.",
     specs: ["IP67 / IP68 rated", "Tight bend radius"],
     image: replacementImage("Forest Ville 2.png"),
   },
   {
     name: projectTitleFromFile("City Retreat 3.png"),
     eyebrow: "EXTERIOR UPLIGHT",
-    description: "Precision in-ground fixtures for trees, columns, facades and high-traffic landscape zones.",
     specs: ["Drive-over rated", "IP67+ · Precision optics"],
     image: replacementImage("City Retreat 3.png"),
   },
   {
     name: projectTitleFromFile("Geelong 3.png"),
     eyebrow: "ARCHITECTURAL CYLINDERS",
-    description: "Clean surface-mounted forms that deliver high output without compromising the ceiling plane.",
     specs: ["High output", "Clean installation"],
     image: replacementImage("Geelong 3.png"),
   },
   {
     name: projectTitleFromFile("Gold Coast 1.png"),
     eyebrow: "ADJUSTABLE SYSTEMS",
-    description: "Flexible high-performance lighting for retail, galleries, task zones and evolving interiors.",
     specs: ["DALI / 3-phase", "Adjustable heads"],
     image: replacementImage("Gold Coast 1.png"),
   },
   {
     name: projectTitleFromFile("Perth Hills 1.png"),
     eyebrow: "HIGH-OUTPUT EXTERIOR",
-    description: "Dependable wide-beam illumination for car parks, facades and demanding outdoor applications.",
     specs: ["High-output LED", "Wide beam · IP-rated"],
     image: replacementImage("Perth Hills 1.png"),
   },
   {
     name: projectTitleFromFile("Bonny Hills 1.png"),
     eyebrow: "PATHWAY LIGHTING",
-    description: "Low-glare landscape fixtures that guide movement through pathways and public spaces.",
     specs: ["Controlled distribution", "Durable outdoor build"],
     image: replacementImage("Bonny Hills 1.png"),
   },
   {
     name: projectTitleFromFile("Curl Curl 1.png"),
     eyebrow: "LOW-LEVEL GUIDANCE",
-    description: "Subtle integrated lighting that supports safe, calm movement through stairs and walkways.",
     specs: ["Safety compliant", "Subtle integration"],
     image: replacementImage("Curl Curl 1.png"),
   },
   {
     name: projectTitleFromFile("Greenarce 2.png"),
     eyebrow: "FEATURE SYSTEMS",
-    description: "Statement and functional pendant forms for offices, lobbies and expressive interiors.",
     specs: ["Linear & feature forms", "Acoustic options"],
     image: replacementImage("Greenarce 2.png"),
   },
   {
     name: projectTitleFromFile("Lane Cove 1.png"),
     eyebrow: "CONNECTED CONTROL",
-    description: "A unified control layer for scene setting, wall interfaces and connected project automation.",
     specs: ["App + wall interface", "Automation ready"],
     image: replacementImage("Lane Cove 1.png"),
   },
@@ -580,7 +570,6 @@ export default function Home() {
                   <div className="best-seller-copy">
                     <p>{product.eyebrow}</p>
                     <h3>{product.name}</h3>
-                    <p>{product.description}</p>
                     <ul className="best-seller-specs">
                       {product.specs.map((spec) => <li key={spec}>{spec}</li>)}
                     </ul>
